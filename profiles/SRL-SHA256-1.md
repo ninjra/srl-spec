@@ -1,6 +1,6 @@
-# SRL-SHA256-1, sample profile version 1.0.0
+# SRL-SHA256-1, sample profile version 1.0.1
 
-**Full profile identifier: `SRL-SHA256-1/1.0.0`. Recommended starting profile.** This is a concrete sequential sample for SRL-SPEC 1.0.0. Its complete definition is this document plus [COMMON-1 version 1.0.0](COMMON-1.md), including the encoding, evidence model, assessment, resource limits and operating scope. It is not a claim that an implementation conforms.
+**Full profile identifier: `SRL-SHA256-1/1.0.1`. Recommended starting profile.** This is a concrete sequential sample for SRL-SPEC 1.0.0. Its complete definition is this document plus [COMMON-1 version 1.0.1](COMMON-1.md), including the encoding, evidence model, assessment, resource limits and operating scope. It is not a claim that an implementation conforms.
 
 ## Addressing
 

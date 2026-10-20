@@ -81,9 +81,11 @@ Storage layout, addressing and lossless record encoding remain implementation ch
 
 ## Concrete sample profiles
 
-Start with [SRL-SHA256-1/1.0.0](profiles/SRL-SHA256-1.md), the recommended SHA-256/CBOR sample. [SRL-RAW-1/1.0.0](profiles/SRL-RAW-1.md) supplies a BLAKE3/CBOR alternative. Both include exact encoding, evidence conditions, deterministic assessment, aggregate resource limits and a sequential reference scope, with [byte-level vectors and operation scenarios](profiles/VECTORS.md). They are profile specifications, not library implementations or certificates.
+Start with [SRL-SHA256-1/1.0.1](profiles/SRL-SHA256-1.md), the recommended SHA-256/CBOR sample. [SRL-RAW-1/1.0.1](profiles/SRL-RAW-1.md) supplies a BLAKE3/CBOR alternative. Both include exact encoding, evidence conditions, deterministic assessment, aggregate resource limits and a sequential reference scope, with [byte-level vectors and operation scenarios](profiles/VECTORS.md). They are profile specifications, not library implementations or certificates.
 
 The [profile comparison and integration decisions](profiles/README.md) explain the choices. These profiles and the [clarification record](CLARIFICATIONS.md) are later repository additions; they are not included in the original v1.0.0 release or its Zenodo files. The published core specification and release artifacts retain their original bytes.
+
+The [profile supplement](profiles/SUPPLEMENT.md) is independently versioned as 1.0.1, with a [portable offline checker and CI](tools/README.md). Its signed release tag is `profiles-v1.0.1`. The specification text remains CC BY 4.0; the new verification tools and associated utility/CI material use [MIT](LICENSE-TOOLS). Independent semantic review was not performed for the supplement and was excluded by the owner.
 
 ## Related work and scope
 

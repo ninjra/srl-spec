@@ -1,14 +1,16 @@
 # Concrete SRL sample profiles
 
-Start with **[SRL-SHA256-1/1.0.0](SRL-SHA256-1.md)**. The alternative **[SRL-RAW-1/1.0.0](SRL-RAW-1.md)** preserves the supplied proposal's BLAKE3/CBOR approach. Both define actual encoding and operating choices; neither is an implementation or an implementation conformance certificate.
+Start with **[SRL-SHA256-1/1.0.1](SRL-SHA256-1.md)**. The alternative **[SRL-RAW-1/1.0.1](SRL-RAW-1.md)** preserves the supplied proposal's BLAKE3/CBOR approach. Both define actual encoding and operating choices; neither is an implementation or an implementation conformance certificate.
+
+Read the [supplement overview](SUPPLEMENT.md), [version changes](CHANGELOG.md) and [portable verification instructions](../tools/README.md). The separately signed release is `profiles-v1.0.1`; its reserved/publication DOI is [10.5281/zenodo.23513927](https://doi.org/10.5281/zenodo.23513927). The record itself establishes whether publication has occurred. Independent semantic review was not performed and was excluded by the owner.
 
 | Choice | Recommended sample | Alternative sample |
 | --- | --- | --- |
-| Full profile identifier | `SRL-SHA256-1/1.0.0` | `SRL-RAW-1/1.0.0` |
+| Full profile identifier | `SRL-SHA256-1/1.0.1` | `SRL-RAW-1/1.0.1` |
 | Hash for all enabled values | SHA-256 | Unkeyed BLAKE3, first 32 output bytes |
 | Address representation | Raw 32 bytes | Raw 32 bytes |
 | Record encoding | `SRL-CBOR-1/1.0.0` | Same encoding |
-| Complete operational rules | [COMMON-1/1.0.0](COMMON-1.md) | Same common rules |
+| Complete operational rules | [COMMON-1/1.0.1](COMMON-1.md) | Same common rules |
 | Supported scope | Sequential trusted reference state, specified access/delivery faults | Same scope |
 | Interchange checks | [Exact vectors and scenarios](VECTORS.md) | Same vector format |
 
@@ -36,7 +38,7 @@ The total-function completions are explicit because SRL's mathematical domains a
 
 ## Status and versioning
 
-These **sample profile specifications, version 1.0.0**, are additive repository material. They were added after the [SRL-SPEC v1.0.0 release](https://github.com/ninjra/srl-spec/releases/tag/v1.0.0) and are **not files in that release or its Zenodo deposit**. The published specification/PDF, manifest, release tag and deposit files retain their original bytes. The core specification version remains 1.0.0.
+These **sample profile specifications, version 1.0.1**, are additive repository material. They were added after the [SRL-SPEC v1.0.0 release](https://github.com/ninjra/srl-spec/releases/tag/v1.0.0) and are **not files in that release or its Zenodo deposit**. The published specification/PDF, manifest, release tag and deposit files retain their original bytes. The core specification version remains 1.0.0.
 
 Future profile revisions must identify the exact common-rule version and hash rule they use. A change to evidence, assessment, resources or scope changes a complete profile even if `H` and `E` stay the same. There is no automatic migration, negotiation or claim of Web Annotation compatibility. A future normative core amendment must have its own version and release record.
 

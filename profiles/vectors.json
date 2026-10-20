@@ -1,7 +1,7 @@
 {
   "format": "SRL-SAMPLE-VECTORS-1/1.0.0",
   "specification": "SRL-SPEC/1.0.0",
-  "common_rules": "COMMON-1/1.0.0",
+  "common_rules": "COMMON-1/1.0.1",
   "encoding": "SRL-CBOR-1/1.0.0",
   "source_vectors": [
     {
@@ -382,7 +382,7 @@
   ],
   "operation_traces": [
     {
-      "profile": "SRL-SHA256-1/1.0.0",
+      "profile": "SRL-SHA256-1/1.0.1",
       "initial_state": {
         "S": {},
         "R": {}
@@ -2311,7 +2311,7 @@
       ]
     },
     {
-      "profile": "SRL-RAW-1/1.0.0",
+      "profile": "SRL-RAW-1/1.0.1",
       "initial_state": {
         "S": {},
         "R": {}
@@ -4240,7 +4240,7 @@
       ]
     },
     {
-      "profile": "SRL-TEST-CONSTANT-0/1.0.0",
+      "profile": "SRL-TEST-CONSTANT-0/1.0.1",
       "initial_state": {
         "S": {},
         "R": {}

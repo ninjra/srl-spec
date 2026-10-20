@@ -1,4 +1,4 @@
-# SRL sample profile common rules, version 1.0.0
+# SRL sample profile common rules, version 1.0.1
 
 These rules, together with exactly one named hash profile, define a complete sequential sample profile for [SRL-SPEC 1.0.0](../SPECIFICATION.md). They are requirements of those samples, not additional requirements on SRL generally. They specify behavior and encoding; no conforming implementation is supplied.
 
@@ -39,14 +39,21 @@ The reference scope assumes a correct protected logical store and control metada
 
 Verification compares a delivered value against the protected retained value, byte for byte or body component by component, including order and repetitions. Occupancy is checked against the protected binding, including trustworthy vacancy. A catalogue observation is checked against protected catalogue membership and the exact body. No body is admitted merely because some bytes decode as it. `Put(E(r))` changes only `S`; decoding is never evidence of a past `Admit`.
 
-For this reference model, complete conditions have the precise form:
+For this reference model, fix one condition domain independent of a particular request or state:
 
 ```text
-Condition_P(q,Σ) = a finite map from every relevant evidence slot to
-    (permitted: Boolean, observation: Unknown | Absent | Bytes(v) | Body(r))
+Slot = {source(p,a) | p in Nat, a in Address}
+     ∪ {occupancy(a) | a in Address}
+     ∪ {catalogue(a) | a in Address}
+Observation = Unknown | Absent | Bytes(v), v in Bytes | Body(r), r in Body
+Evidence = Boolean × Observation
+Condition_P = {k | k is a total function Slot → Evidence}
+project(Σ,q,k) = restriction of k to RequiredSlots(Σ,q)
 ```
 
-This dependent notation describes the relevant projection of one operation's `k`; a profile condition can equivalently contain entries for all possible slots. Extraneous entries have no effect. A complete `k` contains an entry for every relevant slot. Missing physical evidence maps to `Unknown`, not to an omitted condition entry or `Absent`. Actual observation payloads are included. The exact protected pre-state is already supplied by `Σ`.
+`RequiredSlots` is the finite set in the operation table below, formed only after successful structural validation and resource preflight; it is empty on an earlier terminating branch. One `k` applies to the whole operation. Only its finite projection is inspected; changes at other slots cannot affect the outcome. A total function is an abstract domain definition, not a requirement to store infinitely many entries.
+
+A finite concrete condition packet can represent that projection by explicit slot entries with an implicit default `(true, Unknown)` for every other slot. Duplicate or ill-formed packet entries are outside that packet representation; they are not a new SRL public request or error. Omitted evidence therefore supplies `Unknown`, never `Absent` or a successful value. Actual observed payloads are included when present. The exact protected pre-state is already supplied by `Σ`. A realization must justify its concrete observation-to-function mapping independently of its claimed return.
 
 Slot keys identify roles, not payload interpretations:
 

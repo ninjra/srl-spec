@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "Cite this supplement separately from SRL-SPEC 1.0.0."
+title: "SRL Sample Profiles and Verification Supplement"
+version: "1.0.1"
+authors:
+  - family-names: "Ram"
+    given-names: "Shri Narayan Justin"
+    affiliation: "Mushku Nobleworks"
+    orcid: "https://orcid.org/0009-0008-3593-2816"
+doi: "10.5281/zenodo.23513927"
+repository-code: "https://github.com/ninjra/srl-spec"
+url: "https://github.com/ninjra/srl-spec/releases/tag/profiles-v1.0.1"
+license:
+  - CC-BY-4.0
+  - MIT
+abstract: "Concrete sequential SRL reference profiles and reproducible offline verification. Licenses are allocated by file: CC BY 4.0 for specification/profile text and authored fixtures; MIT for verification tools and associated utility/CI material. Independent semantic review was not performed."
+preferred-citation:
+  type: report
+  title: "SRL Sample Profiles and Verification Supplement"
+  authors:
+    - family-names: "Ram"
+      given-names: "Shri Narayan Justin"
+      affiliation: "Mushku Nobleworks"
+      orcid: "https://orcid.org/0009-0008-3593-2816"
+  version: "1.0.1"
+  doi: "10.5281/zenodo.23513927"
+  publisher:
+    name: "Mushku Nobleworks"

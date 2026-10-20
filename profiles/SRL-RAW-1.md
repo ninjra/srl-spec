@@ -1,6 +1,6 @@
-# SRL-RAW-1, sample profile version 1.0.0
+# SRL-RAW-1, sample profile version 1.0.1
 
-**Full profile identifier: `SRL-RAW-1/1.0.0`.** This is a concrete sequential sample for SRL-SPEC 1.0.0, developed from the supplied BLAKE3/CBOR proposal. Its complete definition is this document plus [COMMON-1 version 1.0.0](COMMON-1.md), including the encoding, evidence model, assessment, resource limits and operating scope. It is not a claim that an implementation conforms.
+**Full profile identifier: `SRL-RAW-1/1.0.1`.** This is a concrete sequential sample for SRL-SPEC 1.0.0, developed from the supplied BLAKE3/CBOR proposal. Its complete definition is this document plus [COMMON-1 version 1.0.1](COMMON-1.md), including the encoding, evidence model, assessment, resource limits and operating scope. It is not a claim that an implementation conforms.
 
 ## Addressing
 

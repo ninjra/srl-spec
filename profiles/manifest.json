@@ -1,0 +1,29 @@
+{
+  "schema": "SRL-PROFILES-MANIFEST/1",
+  "version": "1.0.1",
+  "algorithm": "sha256",
+  "files": {
+    ".github/workflows/verify.yml": "ff981f1a683cb0bb8606f1cc0644e5665a94bc863c2eeede8ae4bde4ea417b1f",
+    "CITATION.cff": "49675dfcb3fccd7c578533a0f5404dfdec45b6b0a6e17b5582735e952cc37098",
+    "CLARIFICATIONS.md": "3ca96fc8406b87f3d30085717865d0d11272055c873baa96c679130bad7da316",
+    "LICENSE": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+    "LICENSE-TOOLS": "0dff0b7edeafe3af5624fce3e99d4eba3b9ce92a6c48ef2ddf7197524cf6661c",
+    "README.md": "093273365115f0565c47fc2e3ef807ddfae95e48eb84a3c018b7b54c54542d66",
+    "RELATED_WORK.md": "632da2f72ad446b011ed40fec0909c98cf6a26e6cf779cf500a64651ca0f0de6",
+    "SPECIFICATION.md": "7fbd9c7a92d4c068894f7e126e3eff410314e8b77fec0e170fabd878da59c0f5",
+    "SRL-SPEC-1.0.0.pdf": "efdd9e8ba943cb09cc1553ae1f1edcc77c8f1e586d72fde2c121c24dfd467faf",
+    "manifest.json": "bcf314979a6d2cdcb049da73f3cf4aac42bac8d307a6160c65a3e116ef172f93",
+    "profiles/CHANGELOG.md": "81879efea85829076bd2129f5d8c972552ebc5b07f2cd8023867b404cea405ae",
+    "profiles/CITATION.cff": "0dc0db8fd6cce8a40671bcc9dcaf0692f590f595be49462fdea6654636095279",
+    "profiles/COMMON-1.md": "dfa2f2c8bb7c470bf418059053cb40b337c82e7ad7b26b1d2b3682a7439fc16d",
+    "profiles/README.md": "dde21468d36311405fec1e772ed289a908d763daa91d3ebb8d97cda3e3a1830e",
+    "profiles/SRL-RAW-1.md": "47327028bb30bea4ae875fc6bc507a66d69979850db4ab0de9ad1244b562aa6d",
+    "profiles/SRL-SHA256-1.md": "cf515c32feb2f3831cffa2d84e30d9bee96db91a53326a3aeea2f7a6ed7d6d01",
+    "profiles/SUPPLEMENT.md": "4f8b9c9ea2b5abb2a9f270b14ced32b0706663fd00e2733b17d367bc0988a855",
+    "profiles/VECTORS.md": "5cc656e6e6f3df5ac261bfc588cad89e8494fe512082ba535bc202f8221d5077",
+    "profiles/vectors.json": "1441554ca81d1ce668cbcfc8cd2c53700139e77f5d36b6857744fdad6384ee7b",
+    "tools/README.md": "472836f5c49ba46f525462972a57c9857553540f3466749bb584aa2a69da4268",
+    "tools/requirements.lock": "49822b71ecffbe81abdc633b145a3b5bca6703b295a5dcc09e61774fe134346b",
+    "tools/verify_profiles.py": "7ac075d95e6f6eeaaadd171679132303919536d02ecad72776e8e4fa8f821bd2"
+  }
+}
