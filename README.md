@@ -4,7 +4,7 @@
 
 **Exact bytes. Separate assertions. Verifiable references.**
 
-[**Read the specification**](SPECIFICATION.md) · [**Download the PDF**](SRL-SPEC-1.0.0.pdf) · [**Walkthrough example**](#a-small-example) · [**Related work**](RELATED_WORK.md)
+[**Read the specification**](SPECIFICATION.md) · [**Download the PDF**](SRL-SPEC-1.0.0.pdf) · [**Concrete sample profiles**](profiles/README.md) · [**Clarifications**](CLARIFICATIONS.md) · [**Walkthrough example**](#a-small-example) · [**Related work**](RELATED_WORK.md)
 
 **SRL-SPEC 1.0.0.** This repository provides the formal specification and informative documentation. A conforming library implementation or proof of one is not supplied.
 
@@ -78,6 +78,12 @@ Every operation validates its request and performs one atomic transition over a 
 - **Demonstrated conformance (R08):** A realization identifies its selected profiles, resource limits and operating scope and demonstrates the requirements, including rejection behavior. A hash, record or successful example alone is not proof of conformance.
 
 Storage layout, addressing and lossless record encoding remain implementation choices within the specification's laws.
+
+## Concrete sample profiles
+
+Start with [SRL-SHA256-1/1.0.0](profiles/SRL-SHA256-1.md), the recommended SHA-256/CBOR sample. [SRL-RAW-1/1.0.0](profiles/SRL-RAW-1.md) supplies a BLAKE3/CBOR alternative. Both include exact encoding, evidence conditions, deterministic assessment, aggregate resource limits and a sequential reference scope, with [byte-level vectors and operation scenarios](profiles/VECTORS.md). They are profile specifications, not library implementations or certificates.
+
+The [profile comparison and integration decisions](profiles/README.md) explain the choices. These profiles and the [clarification record](CLARIFICATIONS.md) are later repository additions; they are not included in the original v1.0.0 release or its Zenodo files. The published core specification and release artifacts retain their original bytes.
 
 ## Related work and scope
 
