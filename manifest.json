@@ -1,0 +1,20 @@
+{
+  "schema": "fts-document-package-v1",
+  "identifier": "SRL-SPEC",
+  "version": "1.0.0",
+  "hash_algorithm": "SHA-256",
+  "files": {
+    "SPECIFICATION.md": {
+      "bytes": 33011,
+      "sha256": "7fbd9c7a92d4c068894f7e126e3eff410314e8b77fec0e170fabd878da59c0f5"
+    },
+    "SRL-SPEC-1.0.0.pdf": {
+      "bytes": 109352,
+      "sha256": "efdd9e8ba943cb09cc1553ae1f1edcc77c8f1e586d72fde2c121c24dfd467faf"
+    },
+    "LICENSE": {
+      "bytes": 18657,
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
+    }
+  }
+}

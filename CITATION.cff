@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "Please cite this specification using the preferred citation below."
+title: "SRL: A Formal Specification for Byte-Anchored Assertions"
+version: "1.0.0"
+doi: "10.5281/zenodo.23511373"
+license: "CC-BY-4.0"
+authors:
+  - family-names: "Ram"
+    given-names: "Shri Narayan Justin"
+    orcid: "https://orcid.org/0009-0008-3593-2816"
+    affiliation: "Mushku Nobleworks"
+preferred-citation:
+  type: report
+  title: "SRL: A Formal Specification for Byte-Anchored Assertions"
+  authors:
+    - family-names: "Ram"
+      given-names: "Shri Narayan Justin"
+      orcid: "https://orcid.org/0009-0008-3593-2816"
+      affiliation: "Mushku Nobleworks"
+  version: "1.0.0"
+  doi: "10.5281/zenodo.23511373"
+  publisher:
+    name: "Mushku Nobleworks"
