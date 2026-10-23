@@ -1,26 +1,85 @@
-# SRL — Byte-Anchored Assertions
+# SRL — Keep the source. Trace the claim.
 
-*Content-addressed byte retention and atomic admission of stand-off assertions*
+**Keep original material intact. Attach notes and AI-generated claims to exact passages.**
 
-**Exact bytes. Separate assertions. Verifiable references.**
+You are reviewing a report. An AI summary makes a confident claim. A second reviewer disagrees. Which exact passage did each of them use, and can you still inspect the original?
 
-[**Read the specification**](SPECIFICATION.md) · [**Download the PDF**](SRL-SPEC-1.0.0.pdf) · [**Concrete sample profiles**](profiles/README.md) · [**Clarifications**](CLARIFICATIONS.md) · [**Walkthrough example**](#a-small-example) · [**Related work**](RELATED_WORK.md)
+SRL is a specification for building systems that keep the original bytes and store each claim separately, with references to the exact parts it points to. Reviewers can add different interpretations without rewriting the source or replacing earlier claims.
 
-**SRL-SPEC 1.0.0.** This repository provides the formal specification and informative documentation. A conforming library implementation or proof of one is not supplied.
+**The benefit:** a reader can inspect what a claim points to instead of relying on a summary alone. Checking that reference does not establish whether the claim is true or supported by the passage.
+
+[**See a practical example**](#a-practical-example) · [**Choose-a-path guide**](#start-here) · [**Read the specification**](SPECIFICATION.md) · [**Sample verification tools**](tools/README.md) · [**Cite SRL**](#attribution-and-license)
+
+## What would I use it for?
+
+SRL is intended for people designing software where the original material must remain inspectable as interpretations accumulate:
+
+| You are building… | SRL's contract helps you specify… |
+| --- | --- |
+| An AI research assistant or document review tool | How to retain the source behind an extracted claim and check its exact passage reference before saving the claim |
+| A collaborative annotation system | How conflicting notes can point to the same source without overwriting it or each other |
+| A collection of extracted claims for later review | How to preserve the exact source version and passage for each record, and explicitly refuse records whose required references cannot be verified |
+
+SRL defines the storage and validation behavior behind these workflows. Your application supplies the interface, document parsing, search, interpretation and review decisions.
+
+## A practical example
+
+An original document contains this sentence:
+
+> Delivery usually takes five days.
+
+An AI attaches this claim to that passage:
+
+> Delivery is guaranteed within a week.
+
+A human reviewer attaches a different note to the same passage:
+
+> This describes a usual delivery time; it does not make a guarantee.
+
+In a system implementing SRL:
+
+1. The original document is retained unchanged.
+2. Each statement is stored separately with a reference to the exact passage in that retained document.
+3. Before a record is accepted, all its passage references must pass the specified checks. A failed operation leaves the logical state unchanged.
+4. Both statements can remain available for inspection. SRL does not decide which interpretation is correct.
+
+The misleading AI claim could still have a valid passage reference. That distinction matters: **traceability lets someone check an interpretation; it does not certify the interpretation.** Later edits to a working copy do not silently redirect the old reference to different wording in that copy.
+
+This is an illustrative workflow, not a demo application or runnable API. The [formal example below](#a-small-example) shows the corresponding byte-level operations and their prerequisites.
+
+## What can I use today?
+
+This repository contains **SRL-SPEC 1.0.0**, concrete sample profiles and offline verification tools. It does not yet supply a conforming SRL library, an annotation app or proof of an implementation's conformance.
+
+- **Understand or evaluate the design:** read the example above, then [the contract's five operations](#five-operations).
+- **Design an implementation:** use the [specification](SPECIFICATION.md) with a complete [sample profile](profiles/README.md). A profile fixes choices such as hashing, record encoding, limits and failure handling.
+- **Inspect concrete bytes and rejection cases:** follow the [offline verification instructions](tools/README.md) and examine the [vectors and scenarios](profiles/VECTORS.md). This checker tests sample fixtures; it is not the library.
+- **Read or cite the archived specification:** use the [PDF](SRL-SPEC-1.0.0.pdf) and [version-specific DOI](https://doi.org/10.5281/zenodo.23511373). The GitHub introduction and later sample profiles are separate from the original archived files.
+
+## Start here
+
+| Your question | Where to go |
+| --- | --- |
+| Why keep claims separate from their sources? | [Practical example](#a-practical-example) |
+| How does this differ from existing annotation and provenance work? | [Related work and scope](RELATED_WORK.md) |
+| What must a conforming implementation do? | [Formal specification](SPECIFICATION.md), especially §§4–7 |
+| Which concrete encoding and hash choices can I examine? | [Sample profiles](profiles/README.md) |
+| Can I run the sample checks? | [Verification setup and command](tools/README.md) |
+| Where are the detailed qualifications? | [Clarifications](CLARIFICATIONS.md) |
+
+## The technical terms, in plain language
+
+- **Bytes:** the exact stored data. The core does not need to understand whether it is text, a PDF, an image or another format. Your application maps readable passages or other selections to those bytes.
+- **Stand-off assertion:** a statement saved separately from the material it references.
+- **Byte-span reference:** a reference to an exact interval within retained data, with the verification information required by the chosen profile.
+- **Content address:** an identifier calculated from the data under a fixed profile. A matching hash alone does not establish exact equality, origin or truth.
+- **Atomic admission:** accepting the complete record or leaving the logical state unchanged when the operation fails. A record with several references cannot be partly accepted.
+
+The full name is **Stand-Off Epistemic Reflection Library**. “Reflection” means a separately recorded statement here; SRL does not interpret or judge that statement.
+
+## Formal walkthrough and contract
 
 SRL combines exact byte retention, ordered byte-span references and atomic admission of separate assertions in a small transition contract. It defines what a conforming implementation must preserve and how it must refuse requests. Verifying a byte reference does not establish the truth of the attached assertion.
-
-## Keep the source. Let interpretations change.
-
-A document can accumulate notes, extracted claims and AI-generated interpretations. Those interpretations may disagree or change. You still need to preserve the original and check exactly which bytes each assertion references.
-
-**SRL specifies a library for keeping those concerns separate:** retain the source bytes unchanged, attach assertions to exact byte spans, and validate those references before admitting a record. Different interpretations can coexist without replacing the source or one another.
-
-Use this specification when designing:
-
-- **Annotation tools** that preserve source material while attaching notes to precise passages.
-- **Extraction catalogues** that retain claims alongside verifiable references to their source bytes.
-- **Human or AI-assisted review systems** where competing interpretations must coexist and remain inspectable.
 
 ## A small example
 
@@ -85,7 +144,7 @@ Start with [SRL-SHA256-1/1.0.1](profiles/SRL-SHA256-1.md), the recommended SHA-2
 
 The [profile comparison and integration decisions](profiles/README.md) explain the choices. These profiles and the [clarification record](CLARIFICATIONS.md) are later repository additions; they are not included in the original v1.0.0 release or its Zenodo files. The published core specification and release artifacts retain their original bytes.
 
-The [profile supplement](profiles/SUPPLEMENT.md) is independently versioned as 1.0.1, with a [portable offline checker and CI](tools/README.md). Its signed release tag is `profiles-v1.0.1`. The specification text remains CC BY 4.0; the new verification tools and associated utility/CI material use [MIT](LICENSE-TOOLS). Independent semantic review was not performed for the supplement and was excluded by the owner.
+The [profile supplement](profiles/SUPPLEMENT.md) is independently versioned as 1.0.1, with a [portable offline checker and CI](tools/README.md). Its signed release tag is `profiles-v1.0.1`; use that tag for the exact supplement release files. The current branch includes this later introductory documentation update and its corresponding README checksum in `profiles/manifest.json`. The specification text remains CC BY 4.0; the new verification tools and associated utility/CI material use [MIT](LICENSE-TOOLS). Independent semantic review was not performed for the supplement and was excluded by the owner.
 
 ## Related work and scope
 
